@@ -1,10 +1,7 @@
 "use client";
 import Image from "next/image";
-import ProjectList from "./components/ProjectList";
-import Projects from "./components/Projects";
-import FundingInfo from "./components/FundingInfo";
-import { useContext } from "react";
-import { AppContext } from "./Context/AppContext";
+import ProjectList from "../components/ProjectList";
+import FundingInfo from "../components/FundingInfo";
 
 const fundingInfor = [
   {
@@ -33,8 +30,7 @@ const fundingInfor = [
   },
 ];
 
-export default function Home() {
-  const { loading } = useContext(AppContext);
+export default function Home({ children }) {
   return (
     <main className="flex flex-col items-center justify-between py-8 bg-white">
       <div className="grid grid-cols-12  px-4 gap-4 w-full">
@@ -44,14 +40,7 @@ export default function Home() {
         </div>
         {/* Posts - projects*/}
         <div className="col-span-12 lg:col-span-6  rounded shadow-md">
-          {loading ? (
-            <div className="w-full h-full flex justify-center items-center">
-              <p className="text-4xl font-bold ">Loading...</p>
-            </div>
-          ) : (
-            <Projects></Projects>
-          )}
-          {/* <Projects></Projects> */}
+          {children}
         </div>
         {/* Funding infor */}
         <div className="hidden lg:block col-span-3  rounded shadow-md">

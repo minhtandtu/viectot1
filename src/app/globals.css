@@ -25,3 +25,14 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.bgLinear {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+}
+.bd {
+  @apply border border-gray-300;
+}
+.rs {
+  @apply rounded shadow;
+}
